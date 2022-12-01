@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}BLOGLY{% endblock %}
+
+{% block content %}
+
+
+
+  <div id="dt-img">
+  <img src="{{user.image_url}}" id="img" alt="{{user.first_name}}">
+  </div>
+
+  <div id="dt-h1">
+  <h1 id="dt-h1">{{user.get_full_name()}}</h1>
+  <form action="/{{user.id}}/delete" method="POST">
+  <button id="deleteBtn">delete</button>
+  </form>
+  <form action="/{{user.id}}/edit" method="GET">
+    <button id="editBtn">Edit</button>
+  </form>
+</div>
+
+
+  
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,93 @@
+
+body{
+  text-align: center;
+}
+
+/* home.html */
+#home{
+  margin-left: -1%;
+}
+ul{
+  list-style: none;
+  margin-left: -4%;
+  
+}
+#base,#base_a{
+  color: white;
+  padding: 1em;
+  text-decoration-line: none;
+  background-color: black;
+ 
+}
+#add_user{
+  background-color: gray;
+  color:white
+}
+
+/* add_form.html */
+#first,#last,#add_img{
+  width: 50em;
+  height: 1.5em;
+}
+#sub_form{
+  text-align: left;
+  margin-left: 53%;
+  background-color: green;
+  border-color: green;
+  color:white;
+  padding: 0.5em;
+  border-radius: 10%;
+}
+
+/* detail.html */
+
+#dt-h1{
+  float:left;
+  margin-left:28%;
+  margin-top:-8% ;
+  
+}
+
+ #img{
+  width:10%;
+  height: 10%;
+  margin-top: 6%;
+
+}
+
+
+
+#deleteBtn{
+  background-color: pink;
+  border-color: pink;
+   
+ 
+  
+}
+#editBtn{
+  background-color: skyblue;
+  border-color: skyblue;
+  float:right;
+  margin-right:10%;
+  
+  margin-top: -10.5%; 
+  
+}
+
+/* edit.html */
+#sub_edit{
+  background-color: lightgreen;
+  border-color: lightgreen;
+  /* float: left; */
+  /* margin-left: 45%; */
+  
+}
+
+#cancel{
+  /* margin-right: 60%; */
+  border-color: skyblue;
+  background-color: white;
+  color:skyblue
+  
+}
+

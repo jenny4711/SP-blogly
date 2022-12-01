@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}BLOGLY{% endblock %}
+
+{% block content %}
+<div id="edit_form">
+<h1>Edit a user</h1>
+<form action="/{{user.id}}/edit" method="POST">
+  <label>First Name</label><br/>
+  <input type="text" name="first_name" value={{user.first_name}}><br/><br/>
+  <label>Last Name</label><br/>
+  <input type="text" name="last_name" value={{user.last_name}}><br/><br/>
+  <label>Image URL</label><br/>
+  <input type="url" name="img_url" value={{user.image_url}}><br/><br/>
+  <button id="sub_edit">Save</button>
+</form>
+<form action="/{{user.id}}">
+  <button id="#cancel">Cancel</button>
+</form>
+</div>
+{% endblock %}

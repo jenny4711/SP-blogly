@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href=" /static/app.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title%}{% endblock %}</title>
+</head>
+<body>
+  <nav>
+    <div id="base">
+    <a id="base_a" href="/">List</a>
+    <a id="base_a" href="/add_form">Create User</a>
+  </nav>
+</div>
+ 
+  {% block content %}{% endblock %}
+</body>
+</html>
