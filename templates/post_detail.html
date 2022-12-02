@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}BLOGLY{% endblock %}
+
+{% block content %}
+
+<div class="card mb-3" style="max-width: 540px;">
+<div class="row g-0">
+<div class="col-md-4">
+</div>
+
+<div class="col-md-8">
+<div class="card-body">
+<h1 class="card-title">{{post.title}}</h1>
+<p>{{post.content}}</p>
+
+
+
+<p>{{post.rep.first_name}}</p>
+
+
+<div>
+
+
+<form  action="/posts/{{post.id}}/edit"  method="GET">
+<button id="dt-ed" class=" btn btn-primary" style="float:right; margin:1rem;" >Edit</button>
+</form>
+
+<form  action="/posts/{{post.id}}/delete"  method="POST">
+<button id="dt-del" class=" btn btn-primary bg-danger">delete</button>
+</form>
+
+<form  action="/"  >
+<button id="dt-del" class=" btn btn-outline-primary" style="float:right; margin:1rem; margin-right:-2%; ">Cancel</button>
+</form>
+
+
+      
+
+
+
+
+</div> 
+<br/>
+           
+
+
+
+
+
+{% endblock %}

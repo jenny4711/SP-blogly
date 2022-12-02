@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}BLOGLY{% endblock %}
+
+{% block content %}
+
+<div id="post_form">
+  <h1>Edit a Post</h1>
+  <form action="/posts/{{post.id}}/edit" method="POST">
+    <label>title</label>
+    <input type="text" name="title" value="{{post.title}}">
+    <input type="text" name="content" value="{{post.content}}">
+    <button>Save</button>
+
+  </form>
+  <form action="/posts/{{post.id}}">
+    <button>Cancel</button>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

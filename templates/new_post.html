@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}BLOGLY{% endblock %}
+
+{% block content %}
+
+<form  action="/{{user.id}}/new_post"  method="POST">
+  <label>Title</label>
+  <input type="text" name="title" ><br/><br/>
+  <label>Content</label>
+  <input type="text" name="content"><br/><br/>
+  <button id="dt-ed" >Add</button>
+
+  <form  action="/{{user.id}}"  style="float:right; " method="GET">
+  <button id="dt-ed"  >Cancel</button>
+  </form> 
+  </form>
+
+<form  action="/{{user.id}}"  style="float:right; " method="GET">
+  <button id="dt-ed"  >Cancel</button>
+</form> 
+
+
+
+
+  
+
+
+
+  {% endblock %}
