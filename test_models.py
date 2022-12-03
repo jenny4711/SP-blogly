@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from app import app
-from models import db,Users
+from models import db,Users,Post
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly22_test'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -23,5 +23,7 @@ class UsersModelTestCase(TestCase):
     user = Users(first_name="TestJenny",last_name="TestLee",image_url="https://e7.pngegg.com/pngimages/643/996/png-clipart-leadership-graphics-computer-icons-illustration-organizational-development-learning.png") 
     self.assertEquals(user.get_full_name(),"TESTJENNY TESTLEE")
     
-  
+
+
+
     

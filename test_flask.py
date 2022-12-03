@@ -54,3 +54,16 @@ class UsersViewsTestCase(TestCase):
       
       self.assertEqual(resp.status_code,200)
       self.assertIn('<h1 id="dt-h1">TESTKYUNG SHIN</h1>',html)
+      
+  def test_show_user_a(self):
+    with app.test_client() as client:
+      resp=client.get(f"/{self.user_id}")
+      html =resp.get_data(as_text=True)
+      
+      self.assertEqual(resp.status_code,200)
+      self.assertIn('Hello',html)
+      
+  def test_add_post(self):
+    with app.test_client() as client:
+      a ={"title":"hello","content":"how are you","user_id":"1"}
+      resp=client.post(f"/{self.user_id}/new_post",data=a,follow_redirects=True)    
