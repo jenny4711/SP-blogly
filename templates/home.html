@@ -4,9 +4,9 @@
 {% block content %}
 <div id="home">
 <h1>USER</h1>
-<ul>
+<ul id="home-list">
   {% for user in users %}
-  <li><a href="{{user.id}}">{{user.first_name}}</a></li>
+  <li id="list-name"><a id="a-tag" href="{{user.id}}">{{user.get_full_name()}}</a></li>
   {% endfor %}
 </ul>
 <form action="/add_form">

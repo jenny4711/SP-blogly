@@ -4,11 +4,12 @@
 {% block content %}
 
 
+ 
+  
 
-
-    <div class="card mb-3" style="max-width: 540px;">
-      <div class="row g-0">
-        <div class="col-md-4">
+    <div id="detail-div" class="card mb-3" style="max-width: 540px;">
+      <div id="div1" class="row g-0">
+        <div id="div2" class="col-md-4">
           <img src="{{user.image_url}}" class="img-fluid rounded-start" alt="...">
         </div>
         <div class="col-md-8">
@@ -26,19 +27,25 @@
                <br/>
                <br/>
                <br/>
-               
-                <h1>Posts</h1>
-                <ul>
+               <div id="post-sec">
+                <br/>
+
+                <h1 id="d-h1" >Posts</h1>
+                <ul id="d-ul">
                   {% for post in posts %}
-                  <li><a href='/posts/{{post.id}}'>{{post.title}}</a></li>
+                  <li><a id="d-a" href='/posts/{{post.id}}'>{{post.title}}</a></li>
                   {% endfor %}
                 </ul>
+                <br/>
+               
               </form>
 
               <form action="/{{user.id}}/new_post">
-                  <button>Add Post</button>
+                  <button id="d-btn">Add Post</button>
                 </form>
-                
+                <br/>
+                <br/>
+              </div>
               </div>
           
             </div>

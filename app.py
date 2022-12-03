@@ -1,6 +1,6 @@
 from flask import Flask,request,render_template,redirect
 from flask_debugtoolbar import DebugToolbarExtension
-from models import db, connect_db, Users,Post
+from models import db, connect_db, Users,Post,get_name
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly22'
@@ -94,8 +94,9 @@ def add_post(user_id):
   
   title=request.form['title']
   content=request.form['content']
+  user_id=request.form['user_id']
   
-  new_post=Post(title=title,content=content)
+  new_post=Post(title=title,content=content,user_id=user_id)
   db.session.add(new_post)
   db.session.commit()
   
@@ -105,8 +106,6 @@ def add_post(user_id):
 @app.route('/posts/<int:post_id>')
 def detail_post(post_id):
   post=Post.query.get_or_404(post_id)
-  
-  
   
   
   return render_template('post_detail.html',post=post)
@@ -133,5 +132,15 @@ def edit_postBtn(post_id):
   db.session.commit()
   
   return redirect(f'/posts/{post_id}')
+
+@app.route('/all_posts')
+def all_post():
+  post=Post.query.all()
+  all=Post.query.filter(Post.id >5)
+
+  
+ 
+  
+  return render_template('all_posts.html',post=post, all=all)
   
   

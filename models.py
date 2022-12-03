@@ -1,5 +1,7 @@
 import datetime
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import desc
+
 
 db =SQLAlchemy()
 
@@ -26,6 +28,7 @@ class Users(db.Model):
   image_url= db.Column(db.Text,
                       nullable=False,
                       default=url )
+  reps=db.relationship('Post',cascade='all, delete-orphan')
   
   def get_full_name(self):
     first=self.first_name
@@ -58,10 +61,28 @@ class Post(db.Model):
   user_id= db.Column(db.Integer,
                      db.ForeignKey('users.id'))
     
-  rep=db.relationship('Users',backref='posts')
+  rep=db.relationship('Users')
+  
+ 
+    
   
   def __repr__(self):
-    return f"<Post {self.title} {self.content} {self.rep.first_name} {self.rep.get_full_name()} {self.rep.image_url}> "
+    return f"<Post {self.title} {self.content} > "
   
-
+def get_name():
+  pt = Post.query.all()
+  
+  for p in pt:
+    if p.rep is not None:
+      print(p.title,p.id,p.rep.id,p.rep.first_name)
+      
+    else:
+      print(p.title)  
+ 
+    
+   
+   
+   
+   
+   
      

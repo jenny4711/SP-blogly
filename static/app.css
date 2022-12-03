@@ -1,3 +1,177 @@
-#dt-ed, #dt-del{
-  width:8rem;
+h1,form{
+  text-align: center;
+}
+nav{
+  background-color: black;
+  margin-bottom:10%;
+
+}
+
+/* home.html */
+#a-tag,#nav-a{
+  color:white;
+}
+  
+
+#list-name{
+  margin-left:-10%;
+  
+}
+#home-list{
+  width:30%;
+  margin-left:35%;
+  text-align: center;
+  list-style: none;
+  background-color: black;
+  margin-top:4%;
+  margin-bottom:4%;
+}
+
+
+
+#add_user{
+  text-align: center;
+  background-color: white;
+  border-radius: 10%;
+  padding: 1rem;
+  font-weight: bolder;
+}
+
+/* add_form.html */
+#sub_form{
+  background-color: white;
+  border-radius: 10%;
+  padding: 0.5rem;
+  font-weight: bolder;
+  margin-top:4%;
+  
+}
+
+#first,#last,#add_img{
+  width: 20rem;
+}
+
+
+
+
+/* detail.html */
+#detail-div {
+  margin-left:28%;
+  margin-top:-6%;
+
+  
+}
+#d-a,#d-h1{
+  color:white;
+}
+
+#d-ul{
+  list-style: none;
+  margin-left: -6%;
+}
+
+#post-sec{
+  background-color: black;
+  width:192%;
+  margin-bottom:-15%;
+  margin-left:-78%;
+}
+
+#d-btn{
+  background-color: white;
+  font-weight: bolder;
+  padding:0.5rem;
+}
+
+
+
+/* new_post.html */
+#np-forms{
+  margin-left:-8%;
+}
+
+#np-h1{
+  margin-bottom: 3%;
+}
+#np-input3{
+  width:30rem;
+  margin-left:5.5% ;
+  
+}
+#np-input1{
+  width:30rem;
+  margin-left:7%;
+  
+}
+
+#dt-ed1,#dt-ed2{
+background-color: white;
+font-weight: bolder;
+padding: 0.5rem;
+border-radius: 10%;
+}
+
+#dt-ed2{
+ margin-left:12%;
+}
+
+
+/* edit.html */
+
+
+
+#edit-form{
+  margin-left:6%;
+  margin-top:-3.7%;
+
+}
+
+#sub_edit{
+  margin-left:-6%;
+  background-color: white;
+  font-weight: bolder;
+  padding: 0.5rem;
+  border-radius: 10%;
+}
+
+/* post_detail.html */
+
+#card-bd{
+  margin-left:-50%;
+}
+  
+#pd-form1{
+  margin-left:-35%;
+
+}
+
+#pd-form2{
+  margin-top:-9.5%;
+}
+
+#pd-form3{
+  margin-left:35%;
+  margin-top:-9.3%;
+
+}
+
+#dt-del,dtp-ed{
+  width:5rem;
+  height:3rem;
+}
+
+/* all_posts.html */
+#allp-h1{
+  text-align: center;
+}
+
+#all_div{
+  text-align: center;
+  margin:1rem;
+  margin-left:36%;
+}
+
+#all_h6,#all_time{
+  font-size: x-small;
+  
 }

@@ -12,9 +12,11 @@
   <label>Image URL</label><br/>
   <input type="url" name="img_url" value={{user.image_url}}><br/><br/>
   <button id="sub_edit">Save</button>
+
 </form>
-<form action="/{{user.id}}">
-  <button id="#cancel">Cancel</button>
+<form id="edit-form" action="/{{user.id}}">
+  <button id="#cancel" style="background-color: white;padding:0.5rem;border-radius: 10%; font-weight: bolder;">Cancel</button>
 </form>
+
 </div>
 {% endblock %}

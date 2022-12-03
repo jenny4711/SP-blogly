@@ -3,34 +3,32 @@
 
 {% block content %}
 
-<div class="card mb-3" style="max-width: 540px;">
+<div class="card mb-3" style="max-width: 540px; margin-left:30%; text-align: center;">
 <div class="row g-0">
 <div class="col-md-4">
 </div>
 
 <div class="col-md-8">
-<div class="card-body">
+<div id="card-bd" class="card-body">
 <h1 class="card-title">{{post.title}}</h1>
-<p>{{post.content}}</p>
+<h2>{{post.content}}</h2>
+<p class="fst-italic font-monospace">By {{post.rep.get_full_name()}}, {{post.created_at}}</p>
 
-
-
-<p>{{post.rep.first_name}}</p>
 
 
 <div>
 
 
-<form  action="/posts/{{post.id}}/edit"  method="GET">
-<button id="dt-ed" class=" btn btn-primary" style="float:right; margin:1rem;" >Edit</button>
+<form  id="pd-form1" action="/posts/{{post.id}}/edit"  method="GET">
+<button id="dtp-ed" class=" btn btn-primary" style="width:5rem; height:3rem;" >Edit</button>
 </form>
 
-<form  action="/posts/{{post.id}}/delete"  method="POST">
+<form id="pd-form2" action="/posts/{{post.id}}/delete"  method="POST">
 <button id="dt-del" class=" btn btn-primary bg-danger">delete</button>
 </form>
 
-<form  action="/"  >
-<button id="dt-del" class=" btn btn-outline-primary" style="float:right; margin:1rem; margin-right:-2%; ">Cancel</button>
+<form id="pd-form3" action="/"  >
+<button id="dt-del" class=" btn btn-outline-primary">Cancel</button>
 </form>
 
 

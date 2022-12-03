@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}BLOGLY{% endblock %}
+
+{% block content %}
+
+
+<h1 id="allp-h1">Blogly Recent Posts</h1>
+</br>
+<ul>
+  {% for a in all %}
+
+
+  <div id="all_div" class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{a.title}}</h5>
+      <h6 id="all_h6" class="card-subtitle mb-2 text-muted fst-italic">{{a.rep.get_full_name()}}</h6>
+      <p class="card-text">{{a.content}}.</p>
+      
+      <p id="all_time">{{a.created_at}}</p>
+    </div>
+  </div>
+
+
+
+
+  {% endfor %}
+</ul>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+

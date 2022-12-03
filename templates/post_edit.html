@@ -5,10 +5,11 @@
 
 <div id="post_form">
   <h1>Edit a Post</h1>
-  <form action="/posts/{{post.id}}/edit" method="POST">
-    <label>title</label>
-    <input type="text" name="title" value="{{post.title}}">
-    <input type="text" name="content" value="{{post.content}}">
+  <form action="/posts/{{post.id}}/edit" method="POST"><br/>
+    <label>Title</label>
+    <input type="text" name="title" value="{{post.title}}"><br/>
+    <label>Content</label>
+    <input type="text" name="content" value="{{post.content}}"><br/>
     <button>Save</button>
 
   </form>
