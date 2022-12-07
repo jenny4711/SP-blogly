@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}BLOGLY{% endblock %}
+
+{% block content %}
+
+<h1>{{tags.name}}</h1>
+<ul>
+  {% for post in tags.pt %}
+  <li>
+    <a id="tag_dt_title" href="/posts/{{post.pt.id}}">{{post.pt.title}}</a>
+   
+  </li>
+    
+  {% endfor %}
+</ul>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

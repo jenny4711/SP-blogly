@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}BLOGLY{% endblock %}
+
+{% block content %}
+<h1>Create a tag</h1>
+<div>
+<form action="/tags/new" method="POST">
+<label>Name: </label>
+<input type="text" name="tg_name">
+<br/>
+<br/>
+
+{% for all in post %}
+
+<input type="checkbox" name="check" value="{{all.id}}" id="tg-ck{{all.id}}">
+<label>{{all.title}}</label>
+
+<br/>
+{% endfor%}
+
+<button>Add</button>
+
+
+
+</form>
+<form action="/tags">
+  <button>Cancel</button>
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

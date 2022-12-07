@@ -1,6 +1,6 @@
 from flask import Flask,request,render_template,redirect
 from flask_debugtoolbar import DebugToolbarExtension
-from models import db, connect_db, Users,Post,get_name
+from models import db, connect_db, Users,Post,get_name,Tag,PostTag
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly22'
@@ -137,10 +137,47 @@ def edit_postBtn(post_id):
 def all_post():
   post=Post.query.all()
   all=Post.query.filter(Post.id >5)
-
-  
- 
   
   return render_template('all_posts.html',post=post, all=all)
+# *************************************************************************
+
+@app.route('/tags')
+def list_tag():
+  tags=Tag.query.all()
+  
+  return render_template('tags.html',tags=tags)
+  
+@app.route('/tags/new',methods=['GET'])
+def new_tag():
+  post=Post.query.all()
+  
+  return render_template('add_tag.html',post=post)
+
+@app.route('/tags/new',methods=['POST'])
+def get_new_tag():
+  tag_name=request.form['tg_name']
+  check=request.form['check']
   
   
+  
+  tg= Tag(name=tag_name, pt=[PostTag(post_id=check)])
+  db.session.add(tg)
+  db.session.commit()
+
+  
+    
+  
+
+  
+  return redirect('/tags')
+  
+
+@app.route('/tags/<int:tag_id>',methods=['GET'])
+def tag_detail(tag_id):
+  tags=Tag.query.get_or_404(tag_id)
+  # posts=PostTag.query.filter(PostTag.tag_id == tags)
+  
+  return render_template('tags_detail.html',tags=tags)
+  
+    
+    
