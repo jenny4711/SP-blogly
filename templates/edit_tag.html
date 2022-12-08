@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}BLOGLY{% endblock %}
+
+{% block content %}
+<h1>Edit a tag</h1>
+<div>
+  <form action="/tags/{{tag.id}}/edit" method="POST">
+    <label>Name: </label>
+    <input type="text" name="tg_name" value="{{tag.name}}">
+    <br/>
+    <br/>
+{% for post in posts%}
+
+<input type="checkbox" name="edit_tg_ck" id="edit-tg-ck" value="{{post.id}}">
+<label>{{post.title}}</label>
+
+{% endfor %}
+
+    <br/>
+    <br/>
+    <button>Edit</button>
+  </form>
+  <form action="/tags">
+    <button>Cancel</button>
+  </form>
+</div>
+
+
+
+{% endblock %}

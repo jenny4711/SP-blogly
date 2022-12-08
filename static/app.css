@@ -7,6 +7,7 @@ nav{
 
 }
 
+
 /* home.html */
 #a-tag,#nav-a{
   color:white;
@@ -87,7 +88,9 @@ nav{
 
 /* new_post.html */
 #np-forms{
-  margin-left:-8%;
+  display: flex;
+  justify-content: center;
+  margin-left:-10%;
 }
 
 #np-h1{
@@ -95,12 +98,12 @@ nav{
 }
 #np-input3{
   width:30rem;
-  margin-left:5.5% ;
+  margin-left:11% ;
   
 }
 #np-input1{
   width:30rem;
-  margin-left:7%;
+  margin-left:14%;
   
 }
 
@@ -115,14 +118,25 @@ border-radius: 10%;
  margin-left:12%;
 }
 
+#new_p_tags{
+  text-align: left;
+ 
+  width:30rem;
+  margin-left:50%;
+
+}
+
 
 /* edit.html */
 
+#edit_form{
+  position:relative;
+}
 
 
-#edit-form{
-  margin-left:6%;
-  margin-top:-3.7%;
+#edit-cancel{
+  margin-left:7%;
+  margin-top:-3.6%;
 
 }
 
@@ -159,6 +173,21 @@ border-radius: 10%;
   width:5rem;
   height:3rem;
 }
+#pdt-tags{
+  font-weight: bolder;
+}
+#pt-dt-a{
+  margin-top: 1rem;
+  background-color: #00bbf9;
+     color: white;
+     padding-left:0.5rem;
+     padding-right: 0.5rem;
+     border-radius: 10%;
+     
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+}
 
 /* all_posts.html */
 #allp-h1{
@@ -175,7 +204,143 @@ border-radius: 10%;
   font-size: x-small;
   
 }
-Footer
+#allp_label{
+  font-weight: bolder;
+}
+
+#allp_tg{
+  margin-top: 1rem;
+  background-color: #00bbf9;
+     color: white;
+     padding-left:0.5rem;
+     padding-right: 0.5rem;
+     border-radius: 10%;
+     
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+}
+
+
+/* tags.html */
+
+#tagslist{
+  text-align: center;
+  
+}
+
+#tags_ul,#tags_name{
+  list-style: none;
+  color: black;
+  margin-right: 1.5%;
+}
+
+#tg_add_btn, #tg_btn_form{
+  background-color: white;
+  font-weight: bolder;
+  border-radius: 10%;
+  padding: 0.5rem;
+}
+
+/* add_tag.html */
+#add_tag{
+  display: flex;
+  justify-content: center;
+}
+
+.form-check{
+ text-align: left;
+ 
+  width:30rem;
+  margin-left:10%;
+  
+}
+
+#atg-cancel,#add_tg_cancel{
+margin-top: 11.5%;
+margin-left:-15%;
+
+
+}
+
+#lebel_name{
+  margin-right:25% ;
+}
+#atg_add{
+  margin-right: 40%;
+  background-color: white;
+  font-weight: bolder;
+  border-radius: 10%;
+  padding: 0.5rem;
+  
+}
+#atg_cancel{
+  margin-left:-330%;
+  margin-top:21.5%;
+  background-color: black;
+  color:white;
+  font-weight: bolder;
+  border-radius: 10%;
+  padding: 0.5rem;
+}
+
+/* tags_detail.html */
+#tag_dt_body{
+  display: flex;
+  justify-content: center;
+
+}
+ #tg_dt_div #tag_dt_ul{
+  text-align:left;
+ 
+  width:30rem;
+  margin-right:-28rem;
+}
+
+#tag_dt_ul,#tag_dt_title{
+  text-align: center;
+  list-style: none;
+  color: black;
+}
+
+#tg-dt-btns{
+  margin-top: 10rem;
+  display: flex;
+  justify-content: center;
+  margin-right:1rem;
+  margin-top: 5rem;
+  
+
+}
+#dt-delete1,#dt-btn,#dt-cancel-btn{
+  background-color: black;
+  color:white;
+  font-weight: bolder;
+  border-radius: 20%;
+  padding: 0.5rem;
+  
+
+}
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Footer
 © 2022 GitHub, Inc.
 Footer navigation
-Terms
+Terms */

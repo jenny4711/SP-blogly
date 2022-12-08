@@ -30,11 +30,15 @@
 <form id="pd-form3" action="/"  >
 <button id="dt-del" class=" btn btn-outline-primary">Cancel</button>
 </form>
+<div id="pdt-tags">Tags:
+{% for tag in each_tags %}
 
+<a id="pt-dt-a" href="/tags/{{tag.tg.id}}">{{tag.tg.name}}</a>
 
+{% endfor%}
       
 
-
+</div>
 
 
 </div> 

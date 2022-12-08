@@ -3,28 +3,35 @@
 
 {% block content %}
 <h1>Create a tag</h1>
-<div>
-<form action="/tags/new" method="POST">
-<label>Name: </label>
-<input type="text" name="tg_name">
+<br/>
+<br/>
+<div id="add_tag">
+<form action="/tags/new" method="POST" >
+  <div id="lebel_name">
+<label id="text_name1">Name: </label>
+<input type="text" name="tg_name" id="text_name" >
+</div>
 <br/>
 <br/>
 
+<div class="form-check">
 {% for all in post %}
 
 <input type="checkbox" name="check" value="{{all.id}}" id="tg-ck{{all.id}}">
-<label>{{all.title}}</label>
+<label >{{all.title}}</label>
 
 <br/>
-{% endfor%}
 
-<button>Add</button>
+{% endfor%}
+</div>
+<br/>
+<button id="atg_add">Add</button>
 
 
 
 </form>
-<form action="/tags">
-  <button>Cancel</button>
+<form action="/tags" id="add_tg_cancel">
+  <button id="atg_cancel">Cancel</button>
 </form>
 </div>
 

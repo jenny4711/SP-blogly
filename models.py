@@ -62,7 +62,7 @@ class Post(db.Model):
                      db.ForeignKey('users.id'))
     
   rep=db.relationship('Users')
-  pt=db.relationship('PostTag',backref='pt')
+  pt=db.relationship('PostTag',backref='pt',cascade='all, delete-orphan')
   
   
  
@@ -99,7 +99,7 @@ class Tag(db.Model):
                 unique=True)
   
   
-  pt=db.relationship('PostTag',backref='tg')
+  pt=db.relationship('PostTag',backref='tg',cascade='all, delete-orphan')
   postTg=db.relationship('Post',
                         secondary="post_tags",
                         backref="tg")

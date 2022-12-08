@@ -87,7 +87,8 @@ def edit_btn(user_id):
 @app.route('/<int:user_id>/new_post',methods=['GET'])
 def new_post(user_id):
   user=Users.query.get_or_404(user_id)
-  return render_template('/new_post.html',user=user)
+  all_tag=Tag.query.all()
+  return render_template('/new_post.html',user=user,all_tag=all_tag)
 
 @app.route('/<int:user_id>/new_post',methods=['POST'])
 def add_post(user_id):
@@ -95,8 +96,9 @@ def add_post(user_id):
   title=request.form['title']
   content=request.form['content']
   user_id=request.form['user_id']
+  check_tag=request.form['check_tag']
   
-  new_post=Post(title=title,content=content,user_id=user_id)
+  new_post=Post(title=title,content=content,user_id=user_id,pt=[PostTag(tag_id=check_tag)])
   db.session.add(new_post)
   db.session.commit()
   
@@ -106,9 +108,11 @@ def add_post(user_id):
 @app.route('/posts/<int:post_id>')
 def detail_post(post_id):
   post=Post.query.get_or_404(post_id)
+  # posts=PostTag.query.filter(PostTag.tag_id == tags)
+  each_tags=PostTag.query.filter(PostTag.post_id == post_id)
   
   
-  return render_template('post_detail.html',post=post)
+  return render_template('post_detail.html',post=post,each_tags=each_tags)
   
 @app.route('/posts/<int:post_id>/delete',methods=['POST'])
 def delete_post(post_id):
@@ -120,23 +124,31 @@ def delete_post(post_id):
 @app.route('/posts/<int:post_id>/edit',methods=['GET'])
 def edit_post(post_id):
   post=Post.query.get_or_404(post_id)
-  return render_template('post_edit.html',post=post)
+  each_tags=Tag.query.all()
+  return render_template('post_edit.html',post=post,each_tags=each_tags)
 
 @app.route('/posts/<int:post_id>/edit',methods=['POST'])
 def edit_postBtn(post_id):
   post=Post.query.get_or_404(post_id)
+  # each_tags=PostTag.query.filter(PostTag.post_id == post_id)
+  
   
   post.title=request.form['title']
   post.content=request.form['content']
+  pdt_ck=request.form['pdt_ck']
+  add=PostTag(post_id=post_id,tag_id=pdt_ck)
   db.session.add(post)
   db.session.commit()
-  
+  db.session.add(add)
+  db.session.commit()
+   
   return redirect(f'/posts/{post_id}')
 
 @app.route('/all_posts')
 def all_post():
   post=Post.query.all()
-  all=Post.query.filter(Post.id >5)
+  all=Post.query.filter(Post.id >2)
+ 
   
   return render_template('all_posts.html',post=post, all=all)
 # *************************************************************************
@@ -158,16 +170,10 @@ def get_new_tag():
   tag_name=request.form['tg_name']
   check=request.form['check']
   
-  
-  
   tg= Tag(name=tag_name, pt=[PostTag(post_id=check)])
+  
   db.session.add(tg)
   db.session.commit()
-
-  
-    
-  
-
   
   return redirect('/tags')
   
@@ -175,9 +181,38 @@ def get_new_tag():
 @app.route('/tags/<int:tag_id>',methods=['GET'])
 def tag_detail(tag_id):
   tags=Tag.query.get_or_404(tag_id)
-  # posts=PostTag.query.filter(PostTag.tag_id == tags)
+  
   
   return render_template('tags_detail.html',tags=tags)
+
+
+@app.route('/tags/<int:tag_id>/edit',methods=['GET'])
+def edit_tag(tag_id):
+  tag=Tag.query.get_or_404(tag_id)
+  posts=Post.query.all()
+  return render_template('edit_tag.html',tag=tag,posts=posts)
+
+@app.route('/tags/<int:tag_id>/edit',methods=['POST'])
+def tag_edit(tag_id):
+  tag=Tag.query.get_or_404(tag_id)
+  tag.name=request.form['tg_name']
+  edit_ck=request.form['edit_tg_ck']
+  addPt=PostTag(post_id=edit_ck,tag_id=tag_id)
+  db.session.add(tag)
+  db.session.commit()
+  db.session.add(addPt)
+  db.session.commit()
+  
+  return redirect('/tags')
+  
+  
+@app.route('/tags/<int:tag_id>/delete',methods=['POST'])
+def delete_tag(tag_id):
+  tags=Tag.query.get_or_404(tag_id)
+  db.session.delete(tags)
+  db.session.commit()
+  return redirect('/tags')
+  
   
     
-    
+# p=Post(title='hihi',content='how r u ?',user_id=1, pt=[PostTag(tag_id=1)])

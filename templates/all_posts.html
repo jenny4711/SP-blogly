@@ -17,13 +17,20 @@
       <p class="card-text">{{a.content}}.</p>
       
       <p id="all_time">{{a.created_at}}</p>
+
+      <div>
+        <label id="allp_label">Tags</label>
+      {% for t in a.tg %}
+      <a id = "allp_tg" href="/{{t.id}}">{{t.name}}</a>
+      {% endfor %}
     </div>
+
+ </div>
   </div>
 
-
-
-
   {% endfor %}
+
+  
 </ul>
 
 

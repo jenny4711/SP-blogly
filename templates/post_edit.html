@@ -10,12 +10,19 @@
     <input type="text" name="title" value="{{post.title}}"><br/>
     <label>Content</label>
     <input type="text" name="content" value="{{post.content}}"><br/>
+{% for tag in each_tags %}
+<input type="checkbox" name="pdt_ck" value="{{tag.id}}" id="pdt-ck{{tag.id}}">
+<label>{{tag.name}}</label>
+{% endfor %}
+
     <button>Save</button>
 
   </form>
   <form action="/posts/{{post.id}}">
     <button>Cancel</button>
   </form>
+  <br/>
+
 </div>
 
 

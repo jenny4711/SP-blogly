@@ -2,10 +2,12 @@
 {% block title %}BLOGLY{% endblock %}
 
 {% block content %}
-
+<div id="tagslist">
 <h1>Tags</h1>
+<br/>
+<br/>
 
-<ul>
+<ul id="tags_ul">
   {% for tag in tags%}
   <li>
     <a id="tags_name" href="/tags/{{tag.id}}">{{tag.name}}</a>
@@ -13,17 +15,17 @@
   {% endfor %}
 </ul>
 
+<br/>
 
 
-
-<form action="/tags/new">
-  <button>Add Tag</button>
+<form action="/tags/new" id="tg_btn_form">
+  <button id="tg_add_btn">Add Tag</button>
 </form>
 
 
 
 
-
+</div>
 
 
 
