@@ -11,6 +11,14 @@
 </head>
 <body>
   
+    
+
+   
+    
+    
+    
+
+
 <div>
 <nav>
 <ul class="nav justify-content-center">
@@ -35,8 +43,15 @@
 </nav>
 </div>
 
+<section class="msg">
+  {% for msg in get_flashed_messages() %}
+  <p id="msg">{{msg}}</p>
+  {% endfor %}
 
- 
-  {% block content %}{% endblock %}
+
+</section>
+
+
+{% block content %}{% endblock %}
 </body>
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask,request,render_template,redirect
+from flask import Flask,request,render_template,redirect,flash
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Users,Post,get_name,Tag,PostTag
 
@@ -130,17 +130,28 @@ def edit_post(post_id):
 @app.route('/posts/<int:post_id>/edit',methods=['POST'])
 def edit_postBtn(post_id):
   post=Post.query.get_or_404(post_id)
-  # each_tags=PostTag.query.filter(PostTag.post_id == post_id)
+  
   
   
   post.title=request.form['title']
   post.content=request.form['content']
   pdt_ck=request.form['pdt_ck']
-  add=PostTag(post_id=post_id,tag_id=pdt_ck)
   db.session.add(post)
   db.session.commit()
-  db.session.add(add)
-  db.session.commit()
+  
+  dupTg=PostTag.query.filter_by(post_id=post_id,tag_id=pdt_ck).first()
+  
+  if dupTg:
+    flash("It already has the Tag!")
+    
+  else:
+    add=PostTag(post_id=post_id,tag_id=pdt_ck)
+    db.session.add(add)
+    db.session.commit()
+    flash("It's a success to add !")
+    
+  
+  
    
   return redirect(f'/posts/{post_id}')
 
@@ -170,10 +181,18 @@ def get_new_tag():
   tag_name=request.form['tg_name']
   check=request.form['check']
   
-  tg= Tag(name=tag_name, pt=[PostTag(post_id=check)])
   
-  db.session.add(tg)
-  db.session.commit()
+  dup=Tag.query.filter_by(name=tag_name).first()
+  
+  if dup:
+      flash("It's already have the tag!")
+      
+  else:
+      tg= Tag(name=tag_name, pt=[PostTag(post_id=check)])
+      db.session.add(tg)
+      db.session.commit()
+      flash("It's a success to save!")
+        
   
   return redirect('/tags')
   
@@ -197,12 +216,18 @@ def tag_edit(tag_id):
   tag=Tag.query.get_or_404(tag_id)
   tag.name=request.form['tg_name']
   edit_ck=request.form['edit_tg_ck']
-  addPt=PostTag(post_id=edit_ck,tag_id=tag_id)
   db.session.add(tag)
   db.session.commit()
-  db.session.add(addPt)
-  db.session.commit()
   
+  dupTg=PostTag.query.filter_by(tag_id=tag_id, post_id=edit_ck).first()
+  if dupTg:
+    flash("It already has the post!")
+  else:
+    addPt=PostTag(post_id=edit_ck,tag_id=tag_id)
+    db.session.add(addPt)
+    db.session.commit()
+    flash("It's a success to add! ")
+      
   return redirect('/tags')
   
   

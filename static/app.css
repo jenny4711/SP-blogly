@@ -322,6 +322,17 @@ margin-left:-15%;
 
 }
 
+/* flash */
+#msg{
+  text-align: center;
+  width: 20rem;
+  background-color: black;
+  color: white;
+  
+  padding:0.2rem
+  
+}
+
 
   
 
