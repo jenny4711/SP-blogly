@@ -2,12 +2,19 @@ from flask import Flask,request,render_template,redirect,flash
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Users,Post,get_name,Tag,PostTag
 import os
+import re
 
-
+# uri = os.getenv("DATABASE_URL")  # or other relevant config var
+# if uri.startswith("postgres://"):
+#     uri = uri.replace("postgres://", "postgresql://", 1)
 
 app = Flask(__name__)
+# app.config['SQLALCHEMY_DATABASE_URI'] ="postgresql://blogly22"
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
   'DATABASE_URL',"postgresql:///blogly22")
+print(os.environ)
+print('*************************************')
+print('*************************************')
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
