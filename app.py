@@ -4,8 +4,11 @@ from models import db, connect_db, Users,Post,get_name,Tag,PostTag
 import os
 
 
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','postgres:///blogly22')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+  'DATABASE_URL',"postgresql:///blogly22")
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
