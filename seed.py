@@ -1,1 +1,5 @@
-tg=Tag(name='kyungS',postTg=[PostTag(post_id='13',tag_id='1')])
+from models import db
+from app import app  
+
+db.drop_all()
+db.create_all()

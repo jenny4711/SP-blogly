@@ -6,12 +6,12 @@ import re
 
 # uri = os.getenv("DATABASE_URL")  # or other relevant config var
 # if uri.startswith("postgres://"):
-#     uri = uri.replace("postgres://", "postgresql://", 1)
+#     uri = uri.replace("postgres:///", "postgresql:///", 1)
 
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] ="postgresql://blogly22"
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
-  'DATABASE_URL',"postgresql:///blogly22")
+  'DATABASE_URL',"postgres:///blogly22")
 print(os.environ)
 print('*************************************')
 print('*************************************')
