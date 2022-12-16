@@ -1,13 +1,17 @@
 from flask import Flask,request,render_template,redirect,flash
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Users,Post,get_name,Tag,PostTag
+import os
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly22'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
-app.config['SECRET_KEY'] = 'chickenzarecod121837'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY','hello1')
+print(app.config['SECRT_KEY'])
+print('***************')
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 debug =DebugToolbarExtension(app)
 app.app_context().push()
