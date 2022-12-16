@@ -157,11 +157,11 @@ def edit_postBtn(post_id):
 
 @app.route('/all_posts')
 def all_post():
-  post=Post.query.all()
-  all=Post.query.filter(Post.id >2)
+  # post=Post.query.all()
+  all=Post.query.order_by(Post.created_at.desc()).limit(5).all()
  
   
-  return render_template('all_posts.html',post=post, all=all)
+  return render_template('all_posts.html', all=all)
 # *************************************************************************
 
 @app.route('/tags')
