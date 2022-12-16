@@ -5,12 +5,12 @@ import os
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly22'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL','postgresql:///blogly22')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
 
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY','hello1')
-print(app.config['SECRT_KEY'])
+print(app.config['SECRET_KEY'])
 print('***************')
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 debug =DebugToolbarExtension(app)
