@@ -1,2 +1,3 @@
-web: gunicorn app:app
-server = app.server
+web: gunicorn --preload app:app
+
+
