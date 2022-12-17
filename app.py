@@ -5,7 +5,7 @@ import os
 import re
 
 uri = os.getenv("DATABASE_URL")  # or other relevant config var
-if uri.startsWith("postgres://"):
+if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql:///",1 ) or "postgresql:///blogly22"
 
 app = Flask(__name__)
