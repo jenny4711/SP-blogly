@@ -4,9 +4,10 @@ from models import db, connect_db, Users,Post,get_name,Tag,PostTag
 import os
 import re
 
-uri = os.getenv("DATABASE_URL")  # or other relevant config var
+uri = os.environ.get("DATABASE_URL","postgresql:///blogly22")  # or other relevant config var
 if uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql:///",1 ) or "postgresql:///blogly22"
+    uri = uri.replace("postgres://", "postgresql:///",1 )
+    print(uri)
 
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] ="postgresql://blogly22"
