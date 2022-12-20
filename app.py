@@ -4,7 +4,8 @@ from models import db, connect_db, Users,Post,get_name,Tag,PostTag
 import os
 import re
 
-uri = os.environ.get("DATABASE_URL","postgres://blogly22")  # or other relevant config var
+
+uri = os.environ.get("DATABASE_URI","postgres://blogly22")  # or other relevant config var
 if uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql:///",1 )
     
