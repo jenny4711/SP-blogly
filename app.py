@@ -12,7 +12,7 @@ if uri.startswith("postgres://"):
 
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] ="postgresql://blogly22"
-app.config['SQLALCHEMY_DATABASE_URL'] = uri
+app.config['SQLALCHEMY_DATABASE_URI'] = uri
 print(os.environ)
 print(uri)
 print('*************************************')
