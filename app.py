@@ -14,7 +14,7 @@ if uri.startswith("postgres://"):
 
 
 # app.config['SQLALCHEMY_DATABASE_URI'] =os.environ.get("DATABASE_URL","postgresql:///blogly22")
-app.config['SQLALCHEMY_DATABASE_URI'] =uri
+print(uri)
 print(os.environ)
 
 print('*************************************')
@@ -22,7 +22,7 @@ print('*************************************')
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
-
+app.config['SQLALCHEMY_DATABASE_URI'] = uri
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY','hello1')
 print(app.config['SECRET_KEY'])
 print('***************')
