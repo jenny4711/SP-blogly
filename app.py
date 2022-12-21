@@ -7,14 +7,14 @@ import re
 
 
 
-# uri = os.environ.get("DATABASE_URL","postgres://blogly22")  
-# if uri.startswith("postgres://"):
-#     uri = uri.replace("postgres://", "postgresql:///",1 )
+uri = os.environ.get("DATABASE_URL","postgres://blogly22")  
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql:///",1 )
     
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] =os.environ.get("DATABASE_URL","postgresql:///blogly22")
-# app.config['SQLALCHEMY_DATABASE_URI'] =uri
+# app.config['SQLALCHEMY_DATABASE_URI'] =os.environ.get("DATABASE_URL","postgresql:///blogly22")
+app.config['SQLALCHEMY_DATABASE_URI'] =uri
 print(os.environ)
 
 print('*************************************')
