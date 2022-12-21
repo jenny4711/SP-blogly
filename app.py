@@ -1,21 +1,22 @@
 from flask import Flask,request,render_template,redirect,flash
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Users,Post,get_name,Tag,PostTag
+from seed import setup
 import os
 import re
-from sqlalchemy import create_engine
 
-engine = create_engine("mysql+pymysql://user:pw@host/db", pool_pre_ping=True)
-uri = os.environ.get("DATABASE_URL","postgres://blogly22")  # or other relevant config var
-if uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql:///",1 )
+
+
+# uri = os.environ.get("DATABASE_URL","postgres://blogly22")  
+# if uri.startswith("postgres://"):
+#     uri = uri.replace("postgres://", "postgresql:///",1 )
     
 
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] ="postgresql://blogly22"
-app.config['SQLALCHEMY_DATABASE_URI'] = uri
+app.config['SQLALCHEMY_DATABASE_URI'] =os.environ.get("DATABASE_URL","postgresql:///blogly22")
+
 print(os.environ)
-print(uri)
+
 print('*************************************')
 print('*************************************')
 
@@ -30,7 +31,7 @@ debug =DebugToolbarExtension(app)
 app.app_context().push()
 
 connect_db(app)
-db.create_all()
+# db.create_all()
 
 @app.route('/')
 def home_page():
