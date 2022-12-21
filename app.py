@@ -1,7 +1,7 @@
 from flask import Flask,request,render_template,redirect,flash
 from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, Users,Post,get_name,Tag,PostTag
-from seed import setup
+
 import os
 import re
 
@@ -113,9 +113,9 @@ def add_post(user_id):
   title=request.form['title']
   content=request.form['content']
   user_id=request.form['user_id']
-  check_tag=request.form['check_tag']
+  check_tag=request.form.get('check_tag')
   
-  new_post=Post(title=title,content=content,user_id=user_id,pt=[PostTag(tag_id=check_tag)])
+  new_post=Post(title=title,content=content,user_id=user_id)
   db.session.add(new_post)
   db.session.commit()
   
@@ -196,7 +196,7 @@ def new_tag():
 @app.route('/tags/new',methods=['POST'])
 def get_new_tag():
   tag_name=request.form['tg_name']
-  check=request.form['check']
+  check=request.form.get('check')
   
   
   dup=Tag.query.filter_by(name=tag_name).first()

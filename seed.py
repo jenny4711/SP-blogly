@@ -1,5 +1,5 @@
 from models import db,Users,Post,PostTag,Tag
-from app import db 
+from app import db,app 
 
 def setup():
   db.drop_all()
