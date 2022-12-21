@@ -7,24 +7,25 @@ import re
 app = Flask(__name__)
 
 
-# uri = os.environ.get("DATABASE_URL","postgres://blogly22") x 
-# if uri.startswith("postgres://"):
-#     uri = uri.replace("postgres://", "postgresql:///",1 )x
+uri = os.environ.get("DATABASE_URL","postgres://blogly22") 
+if uri.startswith("postgres://"):
+    uri = uri.replace("postgres://", "postgresql:///",1 )
     
 
 
 # app.config['SQLALCHEMY_DATABASE_URI'] =os.environ.get("DATABASE_URL","postgresql:///blogly22")xx
 
 
-# print(uri)
+print(uri)
 print('********************uri*****************')
 print(os.environ)
 print('**************os.environ********************')
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
-app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get("DATABASE_URL","postgresql:///blogly22")
-# app.config['SQLALCHEMY_DATABASE_URI'] = urix
+print('**************os.environ********************')
+
+app.config['SQLALCHEMY_DATABASE_URI'] = uri
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY','hello1')
 print(app.config['SECRET_KEY'])
 print('***************')
